@@ -3,7 +3,7 @@
 ##
 image:
   repository: nextcloud
-  tag: 21.0.9-apache
+  tag: stable-fpm
   pullPolicy: IfNotPresent
   # pullSecrets:
   #   - myRegistrKeySecretName
@@ -308,7 +308,8 @@ postgresql:
     postgresql:
       # global.postgresql.auth overrides postgresql.auth
       metrics:
-        containerSecurityContext: "disabled"
+        container:
+          SecurityContext: "disabled"
       auth:
         username: nextcloud
         password: changeme
